@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#
+
 # setup.py
 #
 # Copyright (C) 2009 Damien Churchill <damoxc@gmail.com>
@@ -281,12 +281,14 @@ class build_ext(_build_ext):
                 ]
             else:
                 # Assume compiler is Visual Studio
-                if sys.version_info >= (3, 3):
+                if sys.version_info >= (3, 5):
+                    freetds_dir = 'vs2015'
+                elif sys.version_info >= (3, 3):
                     freetds_dir = 'vs2010'
                 else:
                     freetds_dir = 'vs2008'
                 libraries = [
-                    'db-lib', 'tds',
+                    'db-lib', 'tds', 'replacements',
                     'ws2_32', 'wsock32', 'kernel32', 'shell32',
                 ]
 
