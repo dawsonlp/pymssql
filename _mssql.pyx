@@ -1686,7 +1686,7 @@ cdef int _tds_ver_str_to_constant(verstr) except -1:
     if verstr == u'7.2':
         return DBVERSION_72
     if verstr == u'8.0':
-        return DBVERSION_80
+        return DBVERSION_72 #Temporary hack to build windows 10 64bit, py3.5
     raise MSSQLException('unrecognized tds version: %s' % verstr)
 
 #######################
